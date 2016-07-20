@@ -1,4 +1,4 @@
-require 'feedzirra'
+require 'feedjira'
 
 module Jekyll
 
@@ -22,7 +22,7 @@ module Jekyll
 
     def render(context)
       output = '<ul>'
-      feed = Feedzirra::Feed.fetch_and_parse(@feedUrl)
+      feed = Feedjira::Feed.fetch_and_parse(@feedUrl)
       
       feed.entries.first(@limit).each do |entry|
         output += '<li><a href="' + entry.url + '" title="' + entry.title + '">' + entry.title + '</a></li>'
